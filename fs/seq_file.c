@@ -75,10 +75,15 @@ int seq_open(struct file *file, const struct seq_operations *op)
 	mutex_init(&p->lock);
 	p->op = op;
 
+<<<<<<< HEAD
 	/*
 	 * No refcounting: the lifetime of 'p' is constrained
 	 * to the lifetime of the file.
 	 */
+=======
+	// No refcounting: the lifetime of 'p' is constrained
+	// to the lifetime of the file.
+>>>>>>> 685adc73d611 (Make file credentials available to the seqfile interfaces)
 	p->file = file;
 
 	/*
