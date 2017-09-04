@@ -346,7 +346,11 @@ static struct ctl_table kern_table[] = {
 		.maxlen		= sizeof(unsigned int),
 		.mode		= 0644,
 		.proc_handler	= proc_dointvec_minmax,
+<<<<<<< HEAD
 		.extra1		= &one
+=======
+		.extra1		= &one,
+>>>>>>> 319bc6ceb7c1 (sched/sysctl: Check user input value of sysctl_sched_time_avg)
 	},
 	{
 		.procname	= "sched_shares_window_ns",
