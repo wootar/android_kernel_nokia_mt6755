@@ -454,6 +454,7 @@ ext4_read_block_bitmap_nowait(struct super_block *sb, ext4_group_t block_group)
 	ext4_lock_group(sb, block_group);
 	if (ext4_has_group_desc_csum(sb) &&
 	    (desc->bg_flags & cpu_to_le16(EXT4_BG_BLOCK_UNINIT))) {
+<<<<<<< HEAD
 		if (block_group == 0) {
 			ext4_unlock_group(sb, block_group);
 			unlock_buffer(bh);
@@ -461,6 +462,17 @@ ext4_read_block_bitmap_nowait(struct super_block *sb, ext4_group_t block_group)
 				"Block bitmap for bg 0 marked uninitialized");
 			err = -EIO;
 			goto out;
+=======
+		int err;
+
+		if (block_group == 0) {
+			ext4_unlock_group(sb, block_group);
+			unlock_buffer(bh);
+			ext4_error(sb, "Block bitmap for bg 0 marked "
+				   "uninitialized");
+			put_bh(bh);
+			return NULL;
+>>>>>>> 8d419749b274 (ext4: only look at the bg_flags field if it is valid)
 		}
 		err = ext4_init_block_bitmap(sb, bh, block_group, desc);
 		set_bitmap_uptodate(bh);

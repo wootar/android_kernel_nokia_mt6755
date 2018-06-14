@@ -122,9 +122,16 @@ ext4_read_inode_bitmap(struct super_block *sb, ext4_group_t block_group)
 		if (block_group == 0) {
 			ext4_unlock_group(sb, block_group);
 			unlock_buffer(bh);
+<<<<<<< HEAD
 			ext4_error(sb,
 				"Inode bitmap for bg 0 marked uninitialized");
 			goto out;
+=======
+			ext4_error(sb, "Inode bitmap for bg 0 marked "
+				   "uninitialized");
+			put_bh(bh);
+			return NULL;
+>>>>>>> 8d419749b274 (ext4: only look at the bg_flags field if it is valid)
 		}
 		memset(bh->b_data, 0, (EXT4_INODES_PER_GROUP(sb) + 7) / 8);
 		ext4_mark_bitmap_end(EXT4_INODES_PER_GROUP(sb),
