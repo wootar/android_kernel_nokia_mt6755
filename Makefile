@@ -1,8 +1,12 @@
-VERSION = 3
-PATCHLEVEL = 18
-SUBLEVEL = 125
-EXTRAVERSION =
+VERSION = 4
+PATCHLEVEL = 4
+SUBLEVEL = 103
+EXTRAVERSION = -faked
 NAME = Diseased Newt
+
+# VERSION = 3
+# PATCHLEVEL = 18
+# SUBLEVEL = 125
 
 # *DOCUMENTATION*
 # To see a list of typical targets execute "make help"
